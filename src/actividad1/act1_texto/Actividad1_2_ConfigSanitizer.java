@@ -7,6 +7,7 @@ import java.nio.file.Path;
  * Sanitizar ficheros de configuración .ini sucios antes de que una aplicación los cargue,
  * eliminando líneas vacías, comentarios ( # o ; ) y espacios en blanco, y normalizando las claves a mayúsculas.
  */
+
 /**
  * Utilidad para sanitizar archivos de configuración en formato INI.
  * <p>
@@ -69,19 +70,31 @@ public class Actividad1_2_ConfigSanitizer {
 					new FileWriter(destino))
 		){
 			String linea;
+			int numLinea = 1;
 			
 			while ((linea = br.readLine()) != null) {
 				linea = linea.trim();
 				
 				if (linea.isEmpty() || linea.startsWith("#") || linea.startsWith(";")) {
+					numLinea++;
 					continue;
 				}
 				
 				String[] partes = linea.split("=", 2);
-				String lineaSana = partes[0].trim().toUpperCase() + "=" + partes[1].trim();
-				bw.write(lineaSana);
-				bw.newLine();
+				if (partes.length==2) {
+					
+					String lineaSana = partes[0].trim().toUpperCase() + "=" + partes[1].trim();
+					bw.write(lineaSana);
+					bw.newLine();
+					
+				} else {
+					System.err.println("¡ERROR! La linea "
+							 + numLinea + " esta mal formada para un archivo de configuracion: "
+							 		+ linea);
+				}
 				
+				
+				numLinea++;
 			}
 			
 			System.out.println("Archivo .ini sanitizado.");

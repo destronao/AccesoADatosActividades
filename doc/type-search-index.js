@@ -1,0 +1,1 @@
+typeSearchIndex = [{"p":"actividad1.act1_texto","l":"Actividad1_2_ConfigSanitizer"},{"l":"All Classes and Interfaces","u":"allclasses-index.html"}];updateSearchResults();
