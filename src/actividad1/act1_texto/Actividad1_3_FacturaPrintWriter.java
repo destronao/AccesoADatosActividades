@@ -38,7 +38,7 @@ public class Actividad1_3_FacturaPrintWriter {
 
 			imprimirTotales(pw, "Base imponible:", baseImponible);
 			imprimirTotales(pw, "IVA (21%):", iva);
-			imprimirTotales(pw, "TOTAL fACTURA:", total);
+			imprimirTotales(pw, "TOTAL FACTURA:", total);
 
 			System.out.println("Factura generada correctamente.");
 
